@@ -48,6 +48,7 @@
 Lists the visited persons.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -55,34 +56,6 @@ Lists the visited persons.</description>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <fields>
-        <fullName>mdr_Contact__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Contact</label>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Travel Contacts</relationshipLabel>
-        <relationshipName>Travel_Contact_Associations</relationshipName>
-        <relationshipOrder>1</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
-    <fields>
-        <fullName>mdr_Travel__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Travel</label>
-        <referenceTo>Travel__c</referenceTo>
-        <relationshipLabel>Travel Contacts</relationshipLabel>
-        <relationshipName>Travel_Contact_Associations</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
     <label>Travel Contact</label>
     <nameField>
         <displayFormat>TRC-{00000}</displayFormat>
@@ -92,4 +65,5 @@ Lists the visited persons.</description>
     <pluralLabel>Travel Contacts</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

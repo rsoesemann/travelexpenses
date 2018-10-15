@@ -46,6 +46,7 @@
     <deprecated>false</deprecated>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -53,125 +54,6 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <fields>
-        <fullName>chk_Breakfast__c</fullName>
-        <defaultValue>false</defaultValue>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Breakfast</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>chk_Dinner__c</fullName>
-        <defaultValue>false</defaultValue>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Dinner</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>chk_Lunch__c</fullName>
-        <defaultValue>false</defaultValue>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Lunch</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>dat_Day__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Day</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>lkp_Breakfast__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Breakfast</label>
-        <lookupFilter>
-            <active>true</active>
-            <errorMessage>Not a Meal.</errorMessage>
-            <filterItems>
-                <field>CompensationRate__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Meal</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>CompensationRate__c</referenceTo>
-        <relationshipLabel>Meal Invitations</relationshipLabel>
-        <relationshipName>Meal_Invitations</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>lkp_Dinner__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Dinner</label>
-        <lookupFilter>
-            <active>true</active>
-            <errorMessage>Not a meal.</errorMessage>
-            <filterItems>
-                <field>CompensationRate__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Meal</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>CompensationRate__c</referenceTo>
-        <relationshipLabel>Meal Invitations (Dinner)</relationshipLabel>
-        <relationshipName>Meal_Invitations2</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>lkp_Lunch__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Lunch</label>
-        <lookupFilter>
-            <active>true</active>
-            <errorMessage>Not a meal.</errorMessage>
-            <filterItems>
-                <field>CompensationRate__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Meal</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>CompensationRate__c</referenceTo>
-        <relationshipLabel>Meal Invitations (Lunch)</relationshipLabel>
-        <relationshipName>Meal_Invitations1</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>mdr_Travel__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Travel</label>
-        <referenceTo>Travel__c</referenceTo>
-        <relationshipLabel>Meal Invitations</relationshipLabel>
-        <relationshipName>MealInvitations</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
     <label>Meal Invitation</label>
     <nameField>
         <displayFormat>MI-{0000}</displayFormat>
@@ -181,4 +63,5 @@
     <pluralLabel>Meal Invitations</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>
