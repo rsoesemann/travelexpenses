@@ -1,0 +1,13 @@
+{
+  "orgName": "travelexp",
+  "edition": "Developer",
+  "features": [
+    "MultiCurrency"
+  ],
+  "orgPreferences": {
+    "enabled": [
+      "ChatterEnabled"
+    ],
+    "disabled": []
+  }
+}
