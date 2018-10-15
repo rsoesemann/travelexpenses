@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>mdr_Travel__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Travel</label>
+    <referenceTo>Travel__c</referenceTo>
+    <relationshipLabel>Expenses</relationshipLabel>
+    <relationshipName>Expenses</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

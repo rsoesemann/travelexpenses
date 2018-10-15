@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApprovedTravels</fullName>
+    <columns>NAME</columns>
+    <columns>dtm_Start__c</columns>
+    <columns>dtm_End__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>chk_Approved__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>chk_Approved__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Approved Travels</label>
+</ListView>

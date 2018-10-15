@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>DE</fullName>
+        <default>true</default>
+        <label>DE</label>
+    </customValue>
+    <customValue>
+        <fullName>AT</fullName>
+        <default>false</default>
+        <label>AT</label>
+    </customValue>
+    <masterLabel>ISO Country Code</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lkp_LocationFrom__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Location From</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>This is not a Location.</errorMessage>
+        <filterItems>
+            <field>CompensationRate__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Location</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>CompensationRate__c</referenceTo>
+    <relationshipLabel>Long Distance Rides</relationshipLabel>
+    <relationshipName>Long_Distance_Rides</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

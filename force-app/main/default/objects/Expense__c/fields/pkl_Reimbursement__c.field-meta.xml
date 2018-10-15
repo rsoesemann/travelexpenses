@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pkl_Reimbursement__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Reimbursement</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>I paid for this, please reimburse me.</fullName>
+                <default>false</default>
+                <label>I paid for this, please reimburse me.</label>
+            </value>
+            <value>
+                <fullName>The company paid for this.</fullName>
+                <default>false</default>
+                <label>The company paid for this.</label>
+            </value>
+            <value>
+                <fullName>The customer paid for this.</fullName>
+                <default>false</default>
+                <label>The customer paid for this.</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

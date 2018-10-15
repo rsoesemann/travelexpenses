@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>txt_CountryCode__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The Country Code of the Country using the ISO 3166-1 alpha-2 Code.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the &quot;ISO 2 Letter Country Code&quot; for this country.</inlineHelpText>
+    <label>Country Code</label>
+    <length>2</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

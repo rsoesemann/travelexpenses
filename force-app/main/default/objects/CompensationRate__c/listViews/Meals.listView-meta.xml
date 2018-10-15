@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meals</fullName>
+    <columns>NAME</columns>
+    <columns>pct_FullDayAllowanceRate__c</columns>
+    <columns>cur_HalfDayAllowanceRate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>CompensationRate__c.Meal</value>
+    </filters>
+    <label>Meals</label>
+</ListView>

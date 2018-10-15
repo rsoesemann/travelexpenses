@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Miscellaneous</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>ExpenseMobile</compactLayoutAssignment>
+    <description>Other expenses, such as taxi, metro, gasoline costs or parking fee.</description>
+    <label>Miscellaneous</label>
+    <picklistValues>
+        <picklist>pkl_Reimbursement__c</picklist>
+        <values>
+            <fullName>I paid for this%2C please reimburse me%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The company paid for this%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The customer paid for this%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

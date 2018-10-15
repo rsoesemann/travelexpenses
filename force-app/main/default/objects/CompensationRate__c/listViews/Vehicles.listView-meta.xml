@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vehicles</fullName>
+    <columns>NAME</columns>
+    <columns>cur_MilageAllowance__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>CompensationRate__c.Vehicle</value>
+    </filters>
+    <label>Vehicles</label>
+</ListView>
