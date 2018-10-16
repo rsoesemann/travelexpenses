@@ -532,7 +532,6 @@
     </fields>
     <compactLayouts>
         <fullName>ExpenseMobile</fullName>
-        <fields>RecordTypeId</fields>
         <fields>mdr_Travel__c</fields>
         <fields>dat_ExpenseDate__c</fields>
         <label>Expense Mobile</label>
