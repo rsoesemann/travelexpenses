@@ -5,8 +5,7 @@
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
 </a>
 
-<a href="https://codeclimate.com/github/Up2Go/travelexpenses"><img src="https://codeclimate.com/github/Up2Go/travelexpenses/badges/gpa.svg" /></a>
-<a href="https://codeclimate.com/github/Up2Go/travelexpenses"><img src="https://codeclimate.com/github/Up2Go/travelexpenses/badges/issue_count.svg" /></a>
+[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://deploy-to-sfdx.com/)
 
 [Installation/Download](#installationdownload) | [Screenshots](#screenshots) | [Know Issues/Todos](#known-issuestodos) | [Third Party Code](#third-party-code) | [Licence](#visualforce-tablegrid-license)
 
