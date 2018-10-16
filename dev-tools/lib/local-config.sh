@@ -31,7 +31,7 @@
 #
 # Alias for the Dev Hub that should be used when creating scratch orgs for this project.
 # This variable will always need to be customized for individual developers.
-DEV_HUB_ALIAS="<%%-userAnswers.devHubAlias%>"
+DEV_HUB_ALIAS="DevHub"
 
 # Namespace Prefix.  Set to empty string ("") if this project is not building a managed package.
 NAMESPACE_PREFIX="UP2GO_ITE"
@@ -50,13 +50,13 @@ METADATA_PACKAGE_ID="033F00000001hRi"
 PACKAGE_VERSION_ID="04t0G000000T48F"
 
 # Default Package Directory. Should match what is set in sfdx-project.json.
-DEFAULT_PACKAGE_DIR_NAME="<%-userAnswers.packageDirectory%>"
+DEFAULT_PACKAGE_DIR_NAME="$PROJECT_ROOT/sfdx-source/UP2GO_ITE"
 
 # Alias for the primary Scratch Org used by this project.
-SCRATCH_ORG_ALIAS="$NAMESPACE_PREFIX-SCRATCH"
+SCRATCH_ORG_ALIAS="TRAVELEXPENSES-DEV"
 
 # Alias for the packaging org for this project.
-PACKAGING_ORG_ALIAS="$NAMESPACE_PREFIX-PACKAGE"
+PACKAGING_ORG_ALIAS="UP2GO_ITE-PACKAGING"
 
 # Alias for the subscriber test org used to test managed-beta package installs.
 SUBSCRIBER_ORG_ALIAS="$NAMESPACE_PREFIX-SUBSCRIBER"
