@@ -1,0 +1,11 @@
+# Ignore OS system files that are usually auto-added to directories
+[Tt]humbs.db
+.DS_Store
+
+# Ignore Salesforce DX config files
+.sfdx
+.salesforce
+
+# Ignore VSCode config files
+.vscode
+
