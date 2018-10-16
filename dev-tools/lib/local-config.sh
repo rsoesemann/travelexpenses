@@ -50,7 +50,7 @@ METADATA_PACKAGE_ID="033F00000001hRi"
 PACKAGE_VERSION_ID="04t0G000000T48F"
 
 # Default Package Directory. Should match what is set in sfdx-project.json.
-DEFAULT_PACKAGE_DIR_NAME="$PROJECT_ROOT/sfdx-source/UP2GO_ITE"
+DEFAULT_PACKAGE_DIR_NAME="UP2GO_ITE"
 
 # Alias for the primary Scratch Org used by this project.
 SCRATCH_ORG_ALIAS="TRAVELEXPENSES-DEV"
