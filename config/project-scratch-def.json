@@ -1,13 +1,18 @@
 {
-  "orgName": "travelexp",
-  "edition": "Developer",
-  "features": [
-    "MultiCurrency"
+  "orgName":"Travel Expenses Scratch",
+  "edition":"Partner Developer",
+  "features":[
+    "MultiCurrency",
+    "CascadeDelete",
+    "DebugApex",
+    "AuthorApex",
+    "Communities"
   ],
-  "orgPreferences": {
-    "enabled": [
-      "ChatterEnabled"
-    ],
-    "disabled": []
+  "settings":{
+    "orgPreferenceSettings":{
+      "networksEnabled":true,
+      "s1DesktopEnabled":true,
+      "chatterEnabled":true
+    }
   }
 }

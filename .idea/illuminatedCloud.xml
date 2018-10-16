@@ -4,9 +4,9 @@
     <option name="connections">
       <list>
         <IlluminatedCloudConnection>
-          <option name="connectionName" value="travelexpenses-partner-scratch" />
+          <option name="connectionName" value="TRAVELEXPENSES-DEV" />
           <option name="defaultModuleName" value="travelexpenses" />
-          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/travelexpenses_partner_scratch/OfflineSymbolTable.zip" />
+          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/TRAVELEXPENSES_DEV/OfflineSymbolTable.zip" />
         </IlluminatedCloudConnection>
       </list>
     </option>

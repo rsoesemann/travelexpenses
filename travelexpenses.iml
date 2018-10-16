@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="IlluminatedCloud" name="Illuminated Cloud">
       <configuration>
-        <option name="connectionName" value="travelexpenses-partner-scratch" />
+        <option name="connectionName" value="TRAVELEXPENSES-DEV" />
         <option name="moduleContents">
           <ModuleContents>
             <option name="contentSelectionType" value="SELECTED" />
@@ -16,11 +16,10 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/config" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sfdx-source/UP2GO_ITE/main/default" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sfdx-source/UP2GO_ITE/main/test" isTestSource="true" />
     </content>
-    <content url="file://$MODULE_DIR$/force-app">
-      <sourceFolder url="file://$MODULE_DIR$/force-app/main/default" isTestSource="false" />
-    </content>
-    <orderEntry type="jdk" jdkName="IlluminatedCloud (travelexpenses/travelexpenses-partner-scratch)" jdkType="IlluminatedCloud" />
+    <orderEntry type="jdk" jdkName="IlluminatedCloud (travelexpenses/TRAVELEXPENSES-DEV)" jdkType="IlluminatedCloud" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
