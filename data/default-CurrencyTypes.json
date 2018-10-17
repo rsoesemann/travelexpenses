@@ -1,0 +1,81 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "CurrencyType",
+                "referenceId": "CurrencyTypeRef1"
+            },
+            "ConversionRate": 1.2206,
+            "DecimalPlaces": 2,
+            "IsActive": true,
+            "IsCorporate": false,
+            "IsoCode": "CHF"
+        },
+        {
+            "attributes": {
+                "type": "CurrencyType",
+                "referenceId": "CurrencyTypeRef2"
+            },
+            "ConversionRate": 8.6101,
+            "DecimalPlaces": 2,
+            "IsActive": true,
+            "IsCorporate": false,
+            "IsoCode": "CNY"
+        },
+        {
+            "attributes": {
+                "type": "CurrencyType",
+                "referenceId": "CurrencyTypeRef3"
+            },
+            "ConversionRate": 1,
+            "DecimalPlaces": 2,
+            "IsActive": true,
+            "IsCorporate": true,
+            "IsoCode": "EUR"
+        },
+        {
+            "attributes": {
+                "type": "CurrencyType",
+                "referenceId": "CurrencyTypeRef4"
+            },
+            "ConversionRate": 0.824,
+            "DecimalPlaces": 2,
+            "IsActive": true,
+            "IsCorporate": false,
+            "IsoCode": "GBP"
+        },
+        {
+            "attributes": {
+                "type": "CurrencyType",
+                "referenceId": "CurrencyTypeRef5"
+            },
+            "ConversionRate": 139.249,
+            "DecimalPlaces": 2,
+            "IsActive": true,
+            "IsCorporate": false,
+            "IsoCode": "JPY"
+        },
+        {
+            "attributes": {
+                "type": "CurrencyType",
+                "referenceId": "CurrencyTypeRef6"
+            },
+            "ConversionRate": 49.8197,
+            "DecimalPlaces": 2,
+            "IsActive": true,
+            "IsCorporate": false,
+            "IsoCode": "RUB"
+        },
+        {
+            "attributes": {
+                "type": "CurrencyType",
+                "referenceId": "CurrencyTypeRef7"
+            },
+            "ConversionRate": 1.3835,
+            "DecimalPlaces": 2,
+            "IsActive": true,
+            "IsCorporate": false,
+            "IsoCode": "USD"
+        }
+    ]
+}

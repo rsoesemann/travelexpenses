@@ -1,0 +1,19 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "UP2GO_ITE__CustomSettings__c",
+                "referenceId": "UP2GO_ITE__CustomSettings__cRef1"
+            },
+            "Name": "Default",
+            "UP2GO_ITE__txt_CompensationRateRuleClasses__c": "UP2GO_ITE.TravelHasNoMovementGaps, UP2GO_ITE.TravelNeedsMovementOnFirstAndLastDay",
+            "UP2GO_ITE__txt_ExpenseEntityId__c": "01IF0000002H0KJ",
+            "UP2GO_ITE__txt_ExpenseRuleClasses__c": "UP2GO_ITE.ExpenseCannotBeOutsideOfTravelPeriod, UP2GO_ITE.ExpenseCannotEndBeforeStart, UP2GO_ITE.ExpenseHasValidLocation, UP2GO_ITE.ExpenseNeedsReturnInformationIfRoundTrip, UP2GO_ITE.ExpensesDontOverlap, UP2GO_ITE.ExpenseAmountCannotBeNegative",
+            "UP2GO_ITE__txt_LongDistanceRideRuleClasses__c": "UP2GO_ITE.RideCannotBeOutsideOfRental,  UP2GO_ITE.RideCannotEndBeforeStart,  UP2GO_ITE.RideHasValidLocation,  UP2GO_ITE.RidesDontOverlap,  UP2GO_ITE.RidesCannotBeOutsideOfTravel,  UP2GO_ITE.RideNeedsReturnInfoWhenRoundTripChecked",
+            "UP2GO_ITE__txt_MealInvitationRuleClasses__c": "UP2GO_ITE.MealInvitationCannotBeOutOfTravelPeriod, UP2GO_ITE.MealInvitationsCannotBeOnSameDay",
+            "UP2GO_ITE__txt_SaveTravelRuleClasses__c": "UP2GO_ITE.TravelCannotEndBeforeStart, UP2GO_ITE.TravelsDontOverlap",
+            "UP2GO_ITE__txt_SubmitTravelRuleClasses__c": "UP2GO_ITE.TravelHasNoMovementGaps",
+            "UP2GO_ITE__txt_TravelExpenseRelationId__c": "UP2GO_ITE.Trave"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "CurrencyType",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "default-CurrencyTypes.json"
+        ]
+    }
+]

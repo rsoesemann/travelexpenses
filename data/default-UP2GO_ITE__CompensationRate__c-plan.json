@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "UP2GO_ITE__CompensationRate__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "default-UP2GO_ITE__CompensationRate__cs.json"
+        ]
+    }
+]

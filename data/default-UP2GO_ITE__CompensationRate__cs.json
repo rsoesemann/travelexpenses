@@ -1,0 +1,117 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "UP2GO_ITE__CompensationRate__c",
+                "referenceId": "UP2GO_ITE__CompensationRate__cRef1"
+            },
+            "RecordType": {
+                "attributes": {
+                    "type": "RecordType",
+                    "url": "/services/data/v44.0/sobjects/RecordType/012F0000001HnfXIAS"
+                },
+                "DeveloperName": "Location"
+            },
+            "UP2GO_ITE__cur_FullDailyRate__c": 32,
+            "UP2GO_ITE__cur_OvernightStayRate__c": 118,
+            "UP2GO_ITE__cur_PartialDailyRate__c": 21,
+            "UP2GO_ITE__txt_CityName__c": "Barcelona",
+            "UP2GO_ITE__txt_CountryCode__c": "ES",
+            "UP2GO_ITE__txt_CountryName__c": "Spain"
+        },
+        {
+            "attributes": {
+                "type": "UP2GO_ITE__CompensationRate__c",
+                "referenceId": "UP2GO_ITE__CompensationRate__cRef2"
+            },
+            "RecordType": {
+                "attributes": {
+                    "type": "RecordType",
+                    "url": "/services/data/v44.0/sobjects/RecordType/012F0000001HnfXIAS"
+                },
+                "DeveloperName": "Location"
+            },
+            "UP2GO_ITE__cur_FullDailyRate__c": 32,
+            "UP2GO_ITE__cur_OvernightStayRate__c": 98,
+            "UP2GO_ITE__cur_PartialDailyRate__c": 21,
+            "UP2GO_ITE__txt_CityName__c": "Kanarische Inseln",
+            "UP2GO_ITE__txt_CountryCode__c": "ES",
+            "UP2GO_ITE__txt_CountryName__c": "Spain"
+        },
+        {
+            "attributes": {
+                "type": "UP2GO_ITE__CompensationRate__c",
+                "referenceId": "UP2GO_ITE__CompensationRate__cRef3"
+            },
+            "RecordType": {
+                "attributes": {
+                    "type": "RecordType",
+                    "url": "/services/data/v44.0/sobjects/RecordType/012F0000001HnfXIAS"
+                },
+                "DeveloperName": "Location"
+            },
+            "UP2GO_ITE__cur_FullDailyRate__c": 41,
+            "UP2GO_ITE__cur_OvernightStayRate__c": 113,
+            "UP2GO_ITE__cur_PartialDailyRate__c": 28,
+            "UP2GO_ITE__txt_CityName__c": "Madrid",
+            "UP2GO_ITE__txt_CountryCode__c": "ES",
+            "UP2GO_ITE__txt_CountryName__c": "Spain"
+        },
+        {
+            "attributes": {
+                "type": "UP2GO_ITE__CompensationRate__c",
+                "referenceId": "UP2GO_ITE__CompensationRate__cRef4"
+            },
+            "RecordType": {
+                "attributes": {
+                    "type": "RecordType",
+                    "url": "/services/data/v44.0/sobjects/RecordType/012F0000001HnfXIAS"
+                },
+                "DeveloperName": "Location"
+            },
+            "UP2GO_ITE__cur_FullDailyRate__c": 32,
+            "UP2GO_ITE__cur_OvernightStayRate__c": 110,
+            "UP2GO_ITE__cur_PartialDailyRate__c": 21,
+            "UP2GO_ITE__txt_CityName__c": "Palma de Mallorca",
+            "UP2GO_ITE__txt_CountryCode__c": "ES",
+            "UP2GO_ITE__txt_CountryName__c": "Spain"
+        },
+        {
+            "attributes": {
+                "type": "UP2GO_ITE__CompensationRate__c",
+                "referenceId": "UP2GO_ITE__CompensationRate__cRef5"
+            },
+            "RecordType": {
+                "attributes": {
+                    "type": "RecordType",
+                    "url": "/services/data/v44.0/sobjects/RecordType/012F0000001HnfXIAS"
+                },
+                "DeveloperName": "Location"
+            },
+            "UP2GO_ITE__cur_FullDailyRate__c": 29,
+            "UP2GO_ITE__cur_OvernightStayRate__c": 88,
+            "UP2GO_ITE__cur_PartialDailyRate__c": 20,
+            "UP2GO_ITE__txt_CityName__c": "Other",
+            "UP2GO_ITE__txt_CountryCode__c": "ES",
+            "UP2GO_ITE__txt_CountryName__c": "Spain"
+        },
+        {
+            "attributes": {
+                "type": "UP2GO_ITE__CompensationRate__c",
+                "referenceId": "UP2GO_ITE__CompensationRate__cRef6"
+            },
+            "RecordType": {
+                "attributes": {
+                    "type": "RecordType",
+                    "url": "/services/data/v44.0/sobjects/RecordType/012F0000001HnfXIAS"
+                },
+                "DeveloperName": "Location"
+            },
+            "UP2GO_ITE__cur_FullDailyRate__c": 24,
+            "UP2GO_ITE__cur_OvernightStayRate__c": 20,
+            "UP2GO_ITE__cur_PartialDailyRate__c": 12,
+            "UP2GO_ITE__txt_CountryCode__c": "DE",
+            "UP2GO_ITE__txt_CountryName__c": "Germany"
+        }
+    ]
+}
