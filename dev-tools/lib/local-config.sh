@@ -43,11 +43,11 @@ PACKAGE_NAME="Travel Expenses"
 
 # Metadata Package ID.  Refers to the metadata package as a whole.  Must begin with "033".
 # Set to empty string ("") if this project is not building a managed package.
-METADATA_PACKAGE_ID="033F00000001hRi"
+METADATA_PACKAGE_ID="033F00000001hRiIAI"
 
 # Package Version ID. Refers to a specific, installable version of a package. Must begin with "04t".
 # Set to empty string ("") if this project is not building a managed package.
-PACKAGE_VERSION_ID="04t0G000000T48F"
+PACKAGE_VERSION_ID="04t0G000000T48FQAS"
 
 # Default Package Directory. Should match what is set in sfdx-project.json.
 DEFAULT_PACKAGE_DIR_NAME="UP2GO_ITE"
@@ -56,10 +56,10 @@ DEFAULT_PACKAGE_DIR_NAME="UP2GO_ITE"
 SCRATCH_ORG_ALIAS="TRAVELEXPENSES-DEV"
 
 # Alias for the packaging org for this project.
-PACKAGING_ORG_ALIAS="UP2GO_ITE-PACKAGING"
+PACKAGING_ORG_ALIAS="TRAVELEXPENSES-PACKAGING"
 
 # Alias for the subscriber test org used to test managed-beta package installs.
-SUBSCRIBER_ORG_ALIAS="$NAMESPACE_PREFIX-SUBSCRIBER"
+SUBSCRIBER_ORG_ALIAS="TRAVELEXPENSES-QA"
 
 # Git Remote URI. SSH or HTTPS URI that points to the Git remote repo used by this project.
 # GitHub is used as an example here, but any Git remote (ie. BitBucket) can be used.
