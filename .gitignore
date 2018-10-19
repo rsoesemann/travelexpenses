@@ -9,3 +9,6 @@
 # Ignore VSCode config files
 .vscode
 
+# Ignore everything in tmp
+/tmp
+

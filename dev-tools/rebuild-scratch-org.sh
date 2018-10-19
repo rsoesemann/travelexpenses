@@ -234,18 +234,20 @@ if [ -d $PROJECT_ROOT/temp/data.out ]; then
 fi
 mv data.out $PROJECT_ROOT/temp/
 
-importData "$PROJECT_ROOT/temp/data.out/default-CurrencyType-plan.json"
-importData "$PROJECT_ROOT/temp/data.out/default-UP2GO_ITE__CustomSettings__c-plan.json"
-importData "$PROJECT_ROOT/temp/data.out/default-UP2GO_ITE__CompensationRate__c-plan.json"
+importData "$PROJECT_ROOT/temp/data.out/CurrencyType-plan.json"
+importData "$PROJECT_ROOT/temp/data.out/UP2GO_ITE__CustomSettings__c-plan.json"
+importData "$PROJECT_ROOT/temp/data.out/UP2GO_ITE__CompensationRate__c-plan.json"
 
 rm -R $PROJECT_ROOT/temp/data.out
 
+# Adjust Admin user
+sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyIsoCode=EUR" -u $SCRATCH_ORG_ALIAS
 
 # Run all tests
 exec run-all-tests.sh
 
 # Open scratch org
-sfdx force:org:open --path "_ui/common/apex/debug/ApexCSIPage" -u $SCRATCH_ORG_ALIAS
+sfdx force:org:open --path "_ui/common/apex/debug/ApexCSIPage" -u admin
 
 
 #
