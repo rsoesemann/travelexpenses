@@ -1,6 +1,7 @@
 {
   "packageDirectories": [
-    { "path": "sfdx-source/UP2GO_ITE", "default": true }
+    { "path": "sfdx-source/UP2GO_ITE", "default": true },
+	{ "path": "sfdx-source/unpackaged" }
   ],
   "namespace": "UP2GO_ITE",
   "sfdcLoginUrl": "https://login.salesforce.com",

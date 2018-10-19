@@ -28,9 +28,10 @@ private class TravelCtrlExt_Test {
         DateTime departure = dateTime(DAY_TODAY, MORNING);
         DateTime arrival = dateTime(DAY_TODAY, AFTERNOON);
         
-        Profile standPlatUs = [SELECT Id FROM Profile WHERE Name='Standard Platform User']; 
-        User user = createNewUser(standPlatUs, 'traveller');
-        
+        Profile profiles = [SELECT Id FROM Profile WHERE Name in ('Standard Platform User') order by Name ASC];
+        User user = createNewUser(profiles, 'traveller');
+        User approver = createNewUser(profiles, 'approver');
+
         Travel__c travel;
         
         System.runAs(user) {
@@ -45,6 +46,7 @@ private class TravelCtrlExt_Test {
             Approval.ProcessSubmitRequest req = new Approval.ProcessSubmitRequest();
             req.setComments('Submitted for approval. Please approve.');
             req.setObjectId(travel.Id);
+            req.setNextApproverIds(new List<Id> {approver.Id});
             Approval.ProcessResult result = Approval.process(req);
         }
         
@@ -110,6 +112,7 @@ private class TravelCtrlExt_Test {
         
         
         // Verify
+        System.assertEquals(3, dailyExpenses.size());
         System.assertEquals(DAY_TOMORROW, dailyExpenses.get(1).dat_ExpenseDate__c);
         System.assertEquals(460.00, dailyExpenses.get(1).cur_Amount__c);
             
@@ -282,11 +285,11 @@ private class TravelCtrlExt_Test {
     private static User createNewUser(Profile p, String name) {
         String userName = name+'@testorg.com';
         
-        User manager = new User(Alias = 'man', Email='manager@testorg.com', EmailEncodingKey='UTF-8',
+        User manager = new User(Alias = name.substring(0,2) + 'man', Email= name.substring(0,2) +'manager@testorg.com', EmailEncodingKey='UTF-8',
                                LastName='Testing', LanguageLocaleKey='en_US', LocaleSidKey='en_US',
-                               ProfileId = p.Id, TimeZoneSidKey='America/Los_Angeles', UserName='manager@testorg.com');
+                               ProfileId = p.Id, TimeZoneSidKey='America/Los_Angeles', UserName=name.substring(0,2) + 'manager@testorg.com');
         insert manager;
-        
+
         User user = new User(Alias = name.substring(0,2), Email=userName, EmailEncodingKey='UTF-8',
                                LastName='Testing', LanguageLocaleKey='en_US', LocaleSidKey='en_US',
                                ProfileId = p.Id, TimeZoneSidKey='America/Los_Angeles', UserName=userName,

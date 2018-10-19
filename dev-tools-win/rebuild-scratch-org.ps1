@@ -137,6 +137,17 @@ function importData ($a) {
 #
 ##
 ###
+#### FUNCTION: createUser () #######################################################################
+###
+##
+#
+function createUser ($a) {
+  echoStepMsg "Create user from definition file: $a"
+  sfdx force:user:create --definitionfile $a --targetusername $SCRATCH_ORG_ALIAS 
+}
+#
+##
+###
 #### FUNCTION: installPackage () ###################################################################
 ###
 ##
@@ -251,6 +262,17 @@ function cleanup () {
 #
 ##
 ###
+#### FUNCTION: setDefaultUser () #####################################################################
+###
+##
+#
+function setDefaultUser ($a) {
+  echoStepMsg "Set defualt user to: $a"
+  sfdx force:config:set defaultusername=$a
+}
+#
+##
+###
 #### FUNCTION: prepareDataImport () #####################################################################
 ###
 ##
@@ -273,7 +295,7 @@ function prepareDataImport () {
 #
 # Reset the Step Message counter to reflect the number of TOTAL STEPS
 # in your rebuild process. For the baseline SFDX-Falcon template it's 4.
-resetStepMsgCounter 10
+resetStepMsgCounter 11
 
 # Delete the current scratch org.
 deleteScratchOrg
@@ -290,7 +312,7 @@ createScratchOrg
 
 # Assign any permission sets that were added by installed packages.
 # Template for calling this function:
-# assignPermset #PACKAGED_PERMSET_NAME# 
+# assignPermset #PACKAGED_PERMSET_NAME#
 
 # Push metadata to the new Scratch Org.
 pushMetadata
@@ -299,6 +321,9 @@ pushMetadata
 # Template for calling this function:
 assignPermset ExpenseManager
 assignPermset Traveler 
+
+# clean project before importing data
+cleanup
 
 # Import data used during development. You may need to make multiple calls
 # Template for calling this function:
@@ -311,11 +336,20 @@ importData "$PROJECT_ROOT\temp\data.out\default-UP2GO_ITE__CompensationRate__c-p
 #clean project
 cleanup
 
+# create additional users
+#createUser "config\travelexpenses-dev-user-def.json"
+
+# set default user
+#setDefaultUser "admin" 
+
 # Run all tests
-#exec run-all-tests.sh
+#dev-tools-win\run-all-tests.ps1
+
+# Open scratch org dev console 
+# sfdx force:org:open --path "_ui/common/apex/debug/ApexCSIPage" -u $SCRATCH_ORG_ALIAS
 
 # Open scratch org
-sfdx force:org:open --path "_ui/common/apex/debug/ApexCSIPage" -u $SCRATCH_ORG_ALIAS
+sfdx force:org:open -u $SCRATCH_ORG_ALIAS
 
 #runAnonymousApex
 #
