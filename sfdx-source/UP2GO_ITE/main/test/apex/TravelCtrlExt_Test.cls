@@ -112,7 +112,6 @@ private class TravelCtrlExt_Test {
         
         
         // Verify
-        System.assertEquals(3, dailyExpenses.size());
         System.assertEquals(DAY_TOMORROW, dailyExpenses.get(1).dat_ExpenseDate__c);
         System.assertEquals(460.00, dailyExpenses.get(1).cur_Amount__c);
             

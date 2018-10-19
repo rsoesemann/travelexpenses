@@ -329,9 +329,9 @@ cleanup
 # Template for calling this function:
 # importData "$PROJECT_ROOT/data/#DATA_PLAN_JSON#"
 prepareDataImport
-importData "$PROJECT_ROOT\temp\data.out\default-CurrencyType-plan.json"
-importData "$PROJECT_ROOT\temp\data.out\default-UP2GO_ITE__CustomSettings__c-plan.json"
-importData "$PROJECT_ROOT\temp\data.out\default-UP2GO_ITE__CompensationRate__c-plan.json"
+importData "$PROJECT_ROOT\temp\data.out\CurrencyType-plan.json"
+importData "$PROJECT_ROOT\temp\data.out\UP2GO_ITE__CustomSettings__c-plan.json"
+importData "$PROJECT_ROOT\temp\data.out\UP2GO_ITE__CompensationRate__c-plan.json"
 
 #clean project
 cleanup
@@ -339,8 +339,8 @@ cleanup
 # create additional users
 #createUser "config\travelexpenses-dev-user-def.json"
 
-# set default user
-#setDefaultUser "admin" 
+# Adjust Admin user
+sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyIsoCode=EUR" -u $SCRATCH_ORG_ALIAS
 
 # Run all tests
 #dev-tools-win\run-all-tests.ps1

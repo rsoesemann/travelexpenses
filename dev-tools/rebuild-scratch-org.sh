@@ -193,13 +193,46 @@ validateScratchOrgDeletion () {
 #
 ##
 ###
+#### FUNCTION: cleanup () #######################################################
+###
+##
+#
+cleanup () {
+  # Confirm that the scratch org is no longer the default username in SFDX local config.
+  echoStepMsg "Delete Temp files"
+  if [ -d $PROJECT_ROOT/temp/data.out ]; then
+    rm -R $PROJECT_ROOT/temp/data.out
+  fi
+  
+  if [ -d $PROJECT_ROOT/data.out ]; then
+    rm -R $PROJECT_ROOT/data.out
+  fi
+}
+#
+##
+###
+#### FUNCTION: prepareDataImport () #####################################################################
+###
+##
+#
+prepareDataImport () {
+  # Run Anonymous code in the new Scratch Org.
+  echoStepMsg "Prepare data for import."
+  cd $PROJECT_ROOT
+
+  sfdx wry:file:replace -u $SCRATCH_ORG_ALIAS -i data
+  mv data.out $PROJECT_ROOT/temp/
+}
+#
+##
+###
 #### SCRATCH ORG SETUP (DELETE/CREATE/PUSH) ########################################################
 ###
 ##
 #
 # Reset the Step Message counter to reflect the number of TOTAL STEPS
 # in your rebuild process. For the baseline SFDX-Falcon template it's 4.
-resetStepMsgCounter 9
+resetStepMsgCounter 11
 
 # Delete the current scratch org.
 deleteScratchOrg
@@ -209,7 +242,7 @@ createScratchOrg
 
 # Install any packages (managed or unmanaged).
 # Template for calling this function:
-installPackage 04ti0000000TzXd "plantuml4force" "PlantUml"
+#installPackage 04ti0000000TzXd "plantuml4force" "PlantUml"
 
 # Assign any permission sets that were added by installed packages.
 # Template for calling this function:
@@ -223,22 +256,18 @@ pushMetadata
 assignPermset ExpenseManager
 assignPermset Traveler
 
+# clean project before importing data
+cleanup
+
 # Import data used during development. You may need to make multiple calls
 # Template for calling this function:
-cd $PROJECT_ROOT
-
-sfdx wry:file:replace -u $SCRATCH_ORG_ALIAS -i data
-
-if [ -d $PROJECT_ROOT/temp/data.out ]; then
-  rm -R $PROJECT_ROOT/temp/data.out
-fi
-mv data.out $PROJECT_ROOT/temp/
-
+prepareDataImport
 importData "$PROJECT_ROOT/temp/data.out/CurrencyType-plan.json"
 importData "$PROJECT_ROOT/temp/data.out/UP2GO_ITE__CustomSettings__c-plan.json"
 importData "$PROJECT_ROOT/temp/data.out/UP2GO_ITE__CompensationRate__c-plan.json"
 
-rm -R $PROJECT_ROOT/temp/data.out
+#clean project
+cleanup
 
 # Adjust Admin user
 sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyIsoCode=EUR" -u $SCRATCH_ORG_ALIAS
