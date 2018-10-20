@@ -262,8 +262,8 @@ cleanup
 # Import data used during development. You may need to make multiple calls
 # Template for calling this function:
 prepareDataImport
-importData "$PROJECT_ROOT/temp/data.out/CurrencyType-plan.json"
-importData "$PROJECT_ROOT/temp/data.out/UP2GO_ITE__CustomSettings__c-plan.json"
+importData "$PROJECT_ROOT/data/CurrencyType-plan.json"
+importData "$PROJECT_ROOT/data/UP2GO_ITE__CustomSettings__c-plan.json"
 importData "$PROJECT_ROOT/temp/data.out/UP2GO_ITE__CompensationRate__c-plan.json"
 
 #clean project
@@ -276,7 +276,7 @@ sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyI
 exec run-all-tests.sh
 
 # Open scratch org
-sfdx force:org:open --path "_ui/common/apex/debug/ApexCSIPage" -u admin
+sfdx force:org:open
 
 
 #
