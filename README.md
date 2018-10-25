@@ -20,7 +20,7 @@ and thereby adapted to travelers who fall under german taxation.
 
 TravelExpenses ist eine kostenlose "open-source" Salesforce.com Anwendung welche den Rückerstattungsprozess für Reiseausgaben auf Geschäftsreisen vereinfacht. Damit kann jeder Geschäftsreisende nun leicht etwaige Ausgaben während einer Reise auflisten und zusammenrechen lassen, und damit der Reiseabrechnungsabteilung seiner Firma viel Arbeit und Zeit ersparen. Um dem Anwender die Eingabe und die Bearbeitung seiner Angaben zu erleichtern ist TravelExpenses sowohl mit Desktop als auch via Smartphone zugänglich. Zusätzlich berechnet TravelExpenses die sogenannten "Verpflegungspauschalen". Diese Tagessätze die jedem Reisenden während einer Geschäftsreise zustehen, werden anhand des deutschen [steuerlichen Reisekostenrechts](http://www.bundesfinanzministerium.de/Content/DE/Monatsberichte/2014/03/Inhalte/Kapitel-3-Analysen/3-4-reform-steuerliches-reisekostenrecht.html) errechnet. Dies minimiert die vom Reisenden einzugebenden Daten und befreit dessen Firma von der eigenen Berechnung der Tagessätze. Dadurch ist die Anwendung vor allem für Reisende gedacht die unter das deutsche Steuerrecht fallen.
 
- 
+
 ## Features: ##
 - Native Salesforce.com Look & Feel
 - Native Salesforce1 Look & Feel
@@ -29,7 +29,7 @@ TravelExpenses ist eine kostenlose "open-source" Salesforce.com Anwendung welche
 - Automated calculation of Per Diems (Verpflegungspauschalen)
 - PDF generation
 - Complete integration of Salesforce Chatter
-- Adapted to the german tax law
+- Adapted to the german tax laws
 
 
 ## Screenshots ##
