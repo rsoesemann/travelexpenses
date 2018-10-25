@@ -67,10 +67,10 @@ jobs:
             mkdir /tmp/sfdx-keys
             # Convert the Hex Keys stored in the context's environment variables back to binary
             echo $DEVHUB_SERVER_KEY_HEX | xxd -r -ps >> /tmp/sfdx-keys/dev-hub.key
-            echo $PKGORG_SERVER_KEY_HEX | xxd -r -ps >> /tmp/sfdx-keys/pkg-org.key
+            #echo $PKGORG_SERVER_KEY_HEX | xxd -r -ps >> /tmp/sfdx-keys/pkg-org.key
             # Confirm that our converted keys are both valid RSA Private Keys
             openssl rsa -in /tmp/sfdx-keys/dev-hub.key -check -noout
-            openssl rsa -in /tmp/sfdx-keys/pkg-org.key -check -noout
+            #openssl rsa -in /tmp/sfdx-keys/pkg-org.key -check -noout
       - run:
           name: Validate connection/authentication against the Dev Hub
           command: |
@@ -106,7 +106,7 @@ jobs:
           root: /tmp/sfdx-keys
           paths:
             - dev-hub.key
-            - pkg-org.key
+            #- pkg-org.key
 
       # Store SFDX logs as artifacts
       - store_artifacts:
