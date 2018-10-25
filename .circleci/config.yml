@@ -239,7 +239,7 @@ jobs:
       - PACKAGE_DIRECTORY:    "./sfdx-source/travelexpenses_x"  # SFDX package directory that has your code
     steps:
       - checkout                  # Required step.  Checks out the code from your repository.
-      - attach_workspace:travelexpenses_x
+      - attach_workspace:
           at: /tmp/sfdx-keys      # Attaches the workspace where our private key files were stored.
       - run: 
           name: Display version info for the Salesforce CLI and core plugins (will force updates if needed)
