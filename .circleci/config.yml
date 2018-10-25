@@ -125,7 +125,7 @@ jobs:
       - TEST_RESULTS_PATH:  /tmp/test-results
       - TEST_RESULTS_DIR:   test
     steps:
-      - checkout                  # Required step.  Checks out the code from your repository.
+      - checkout                  # Required step.  Checks out the code from your repositoryd.
       - attach_workspace:
           at: /tmp/sfdx-keys      # Attaches the workspace where our private key files were stored.
       - run: 
