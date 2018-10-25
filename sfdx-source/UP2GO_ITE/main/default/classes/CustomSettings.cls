@@ -1,6 +1,5 @@
 public with sharing class CustomSettings {
 	
-	
 	// PUBLIC METHODS
 	
 	public static void addDefault() {
