@@ -1,0 +1,18 @@
+{
+  "orgName":"TRAVELEXPENSES-DEV",
+  "edition":"Partner Developer",
+  "features":[
+    "MultiCurrency",
+    "CascadeDelete",
+    "DebugApex",
+    "AuthorApex",
+    "Communities"
+  ],
+  "settings":{
+    "orgPreferenceSettings":{
+      "networksEnabled":true,
+      "s1DesktopEnabled":true,
+      "chatterEnabled":true
+    }
+  }
+}

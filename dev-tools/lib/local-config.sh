@@ -68,7 +68,7 @@ GIT_REMOTE_URI="https://github.com/Up2Go/travelexpenses.git"
 
 # Location of the primary scratch-def.json file that should be used by SFDX-Falcon scripts that
 # create scratch orgs (eg. rebuild-scratch-org).
-SCRATCH_ORG_CONFIG="$PROJECT_ROOT/config/project-scratch-def.json"
+SCRATCH_ORG_CONFIG="$PROJECT_ROOT/config/dev-scratch-def.json"
 
 # Echo the variables set by this script prior to exiting.  Specify "false" to suppress the
 # display of local config that normally occurs when executing SFDX-Falcon based scripts.

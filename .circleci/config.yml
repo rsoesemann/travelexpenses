@@ -121,9 +121,9 @@ jobs:
     docker:
       - image: ncino/ci-sfdx
     environment:
-      - SCRATCH_ORG_CONFIG: test-build-1-scratch-def.json
+      - SCRATCH_ORG_CONFIG: test-scratch-def.json
       - TEST_RESULTS_PATH:  /tmp/test-results
-      - TEST_RESULTS_DIR:   test-build-1
+      - TEST_RESULTS_DIR:   test
     steps:
       - checkout                  # Required step.  Checks out the code from your repository.
       - attach_workspace:
@@ -175,7 +175,9 @@ jobs:
             ## sfdx force:user:permset:assign
             # -n --PERMSETNAME              Required. The name of the permission set to assign
             # -u --TARGETUSERNAME           Optional. Username or alias for the target org (Overrides default target org)
-            sfdx force:user:permset:assign  -n "FSC_DW" \
+            sfdx force:user:permset:assign  -n "ExpenseManager" \
+                                            -u circle_build_$CIRCLE_BUILD_NUM
+            sfdx force:user:permset:assign  -n "Traveler" \
                                             -u circle_build_$CIRCLE_BUILD_NUM
       - run:
           name: Create artifact directory to store test results
@@ -223,23 +225,6 @@ jobs:
           destination: sfdx-logs
 
 ####################################################################################################
-## JOB:     test-build-2
-## PURPOSE: Builds and tests against an alternate org shape
-## NOTE:    Tests not implemented for this job during the demo.  If moving this
-##          sample code into production, you should add additional tests here.
-####################################################################################################
-  test-build-2:
-    docker:
-      - image: ncino/ci-sfdx
-    environment:
-      - SCRATCH_ORG_CONFIG: test-build-2-scratch-def.json
-    steps:
-      - run:
-          name: Sleep for one minute
-          command: |
-            sleep 1m
-
-####################################################################################################
 ## JOB:     create-beta-package
 ## PURPOSE: Deploys successfully built and tested code to the packaging org so it can be prepped
 ##          for a new BETA package version upload.
@@ -248,13 +233,13 @@ jobs:
     docker:
       - image: ncino/ci-sfdx
     environment:
-      - PACKAGE_NAME:         "Falcon-X"                      # Name of your managed package
-      - PACKAGE_VERSION_NAME: "Spring 2018-C"                 # Version Name for your managed package
-      - METADATA_PACKAGE_ID:  "0331N000000gPC2QAM"            # Metadata Package ID (always begins with 033)
-      - PACKAGE_DIRECTORY:    "./sfdx-source/isvte_falcon_x"  # SFDX package directory that has your code
+      - PACKAGE_NAME:         "Travelexpenses"                # Name of your managed package
+      - PACKAGE_VERSION_NAME: "X (Travelexpenses)"                 # Version Name for your managed package
+      - METADATA_PACKAGE_ID:  "033F00000001hRiIAI"            # Metadata Package ID (always begins with 033)
+      - PACKAGE_DIRECTORY:    "./sfdx-source/travelexpenses_x"  # SFDX package directory that has your code
     steps:
       - checkout                  # Required step.  Checks out the code from your repository.
-      - attach_workspace:
+      - attach_workspace:travelexpenses_x
           at: /tmp/sfdx-keys      # Attaches the workspace where our private key files were stored.
       - run: 
           name: Display version info for the Salesforce CLI and core plugins (will force updates if needed)

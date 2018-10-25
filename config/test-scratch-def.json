@@ -1,6 +1,6 @@
 {
-  "orgName":"Travel Expenses Scratch",
-  "edition":"Partner Developer",
+  "orgName":"TRAVELEXPENSES-TEST",
+  "edition":"Enterprise",
   "features":[
     "MultiCurrency",
     "CascadeDelete",
