@@ -229,101 +229,101 @@ jobs:
 ## PURPOSE: Deploys successfully built and tested code to the packaging org so it can be prepped
 ##          for a new BETA package version upload.
 ####################################################################################################
-#  create-beta-package:
-#    docker:
-#      - image: ncino/ci-sfdx
-#    environment:
-#      - PACKAGE_NAME:         "Travelexpenses"                # Name of your managed package
-#      - PACKAGE_VERSION_NAME: "X (Travelexpenses)"                 # Version Name for your managed package
-#      - METADATA_PACKAGE_ID:  "033F00000001hRiIAI"            # Metadata Package ID (always begins with 033)
-#      - PACKAGE_DIRECTORY:    "./sfdx-source/travelexpenses_x"  # SFDX package directory that has your code
-#    steps:
-#      - checkout                  # Required step.  Checks out the code from your repository.
-#      - attach_workspace:
-#          at: /tmp/sfdx-keys      # Attaches the workspace where our private key files were stored.
-#      - run:
-#          name: Display version info for the Salesforce CLI and core plugins (will force updates if needed)
-#          command: |
-#            sfdx version          # Output the version of the CLI
-#            sfdx plugins --core   # Output the version of the core plugins
-#      - run:
-#          name: Authenticate the Salesforce CLI to the Packaging Org using JWT
-#          command: |
-#            #### Use the pkg-org.key that was created by the setup-build-environment job
-#            ## sfdx force:auth:jwt:grant
-#            # -i --CLIENTID                 Required. The OAuth client ID (sometimes referred to as the consumer key)
-#            # -f --JWTKEYFILE               Required. Path to a file containing the private key
-#            # -u --USERNAME                 Required. The authentication username.
-#            # -d --SETDEFAULTDEVHUBUSERNAME Optional. Sets the authenticated org as the default Dev Hub org for scratch org creation.
-#            # -a --SETALIAS                 Optional. Sets an alias for the authenticated org.
-#            sfdx force:auth:jwt:grant -i $PKGORG_CONSUMER_KEY \
-#                                      -f /tmp/sfdx-keys/pkg-org.key \
-#                                      -u $PKGORG_SFDC_USERNAME \
-#                                      -d \
-#                                      -a PkgOrg
-#      - run:
-#          name: Convert SFDX source to MDAPI source
-#          command: |
-#            #### Convert SFDX source to MDAPI source so it can be deployed to the Packaging Org
-#            ## sfdx force:source:convert
-#            # -r --ROOTDIR                  Optional. The directory that contains the source to convert.
-#            # -d --OUTPUTDIR                Optional. The output directory to export the Metadata API source to.
-#            # -n --PACKAGENAME              Optional. The name of the package to associate with the Metadata API source.
-#            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
-#            sfdx force:source:convert -r "$PACKAGE_DIRECTORY" \
-#                                      -d "./mdapi-source/circle_build_$CIRCLE_BUILD_NUM" \
-#                                      -n "$PACKAGE_NAME" \
-#                                      --loglevel error
-#      - run:
-#          name: Deploy MDAPI Source to the Packaging Org
-#          command: |
-#            #### Deploy the newly converted MDAPI Source to the Packaging Org
-#            ## sfdx force:mdapi:deploy
-#            # -d --DEPLOYDIR                Optional. The root of the directory tree that contains the files to deploy.
-#            # -l --TESTLEVEL                Optional. Specifies which level of deployment tests to run.
-#            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
-#            # -w --WAIT                     Optional. The number of minutes to wait for the command to complete. Default is –1 (no limit).
-#            #    --VERBOSE                  Optional. Indicates that you want verbose output from the deploy operation.
-#            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
-#            sfdx force:mdapi:deploy -d "./mdapi-source/circle_build_$CIRCLE_BUILD_NUM" \
-#                                    -l RunLocalTests \
-#                                    -u PkgOrg \
-#                                    -w 15 \
-#                                    --verbose \
-#                                    --loglevel error
-#      - run:
-#          name: List current version history for the first-generation package about to be uploaded
-#          command: |
-#            #### List version info for all first-gen packages
-#            ## sfdx force:package1:version:list
-#            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
-#            # -i --PACKAGEID                Optional. ID of the metadata package (starts with 033) we want version info from.
-#            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
-#            sfdx force:package1:version:list  -u PkgOrg \
-#                                              -i $METADATA_PACKAGE_ID \
-#                                              --loglevel error
-#      - run:
-#          name: Create (upload) a new MANAGED BETA package version
-#          command: |
-#            #### Create a new MANAGED BETA package version
-#            ## sfdx force:package1:version:create
-#            # -i --PACKAGEID                Required. ID of the metadata package (starts with 033) of which you’re creating a new version.
-#            # -n --NAME                     Required. Package version name.
-#            # -d --DESCRIPTION              Optional. Package version description.
-#            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
-#            # -w --WAIT                     Optional. The number of minutes to wait for the command to complete. Default is –1 (no limit).
-#            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
-#            sfdx force:package1:version:create  -i $METADATA_PACKAGE_ID \
-#                                                -n "$PACKAGE_VERSION_NAME" \
-#                                                -d "Package version generated by CI process" \
-#                                                -u PkgOrg \
-#                                                -w 15 \
-#                                                --loglevel error
-#
-#      # Store SFDX logs as artifacts
-#      - store_artifacts:
-#          path: ~/.sfdx/sfdx.log
-#          destination: sfdx-logs
+  create-beta-package:
+    docker:
+      - image: ncino/ci-sfdx
+    environment:
+      - PACKAGE_NAME:         "Travelexpenses"                # Name of your managed package
+      - PACKAGE_VERSION_NAME: "X (Travelexpenses)"                 # Version Name for your managed package
+      - METADATA_PACKAGE_ID:  "033F00000001hRiIAI"            # Metadata Package ID (always begins with 033)
+      - PACKAGE_DIRECTORY:    "./sfdx-source/travelexpenses_x"  # SFDX package directory that has your code
+    steps:
+      - checkout                  # Required step.  Checks out the code from your repository.
+      - attach_workspace:
+          at: /tmp/sfdx-keys      # Attaches the workspace where our private key files were stored.
+      - run:
+          name: Display version info for the Salesforce CLI and core plugins (will force updates if needed)
+          command: |
+            sfdx version          # Output the version of the CLI
+            sfdx plugins --core   # Output the version of the core plugins
+      - run:
+          name: Authenticate the Salesforce CLI to the Packaging Org using JWT
+          command: |
+            #### Use the pkg-org.key that was created by the setup-build-environment job
+            ## sfdx force:auth:jwt:grant
+            # -i --CLIENTID                 Required. The OAuth client ID (sometimes referred to as the consumer key)
+            # -f --JWTKEYFILE               Required. Path to a file containing the private key
+            # -u --USERNAME                 Required. The authentication username.
+            # -d --SETDEFAULTDEVHUBUSERNAME Optional. Sets the authenticated org as the default Dev Hub org for scratch org creation.
+            # -a --SETALIAS                 Optional. Sets an alias for the authenticated org.
+            sfdx force:auth:jwt:grant -i $PKGORG_CONSUMER_KEY \
+                                      -f /tmp/sfdx-keys/pkg-org.key \
+                                      -u $PKGORG_SFDC_USERNAME \
+                                      -d \
+                                      -a PkgOrg
+      - run:
+          name: Convert SFDX source to MDAPI source
+          command: |
+            #### Convert SFDX source to MDAPI source so it can be deployed to the Packaging Org
+            ## sfdx force:source:convert
+            # -r --ROOTDIR                  Optional. The directory that contains the source to convert.
+            # -d --OUTPUTDIR                Optional. The output directory to export the Metadata API source to.
+            # -n --PACKAGENAME              Optional. The name of the package to associate with the Metadata API source.
+            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
+            sfdx force:source:convert -r "$PACKAGE_DIRECTORY" \
+                                      -d "./mdapi-source/circle_build_$CIRCLE_BUILD_NUM" \
+                                      -n "$PACKAGE_NAME" \
+                                      --loglevel error
+      - run:
+          name: Deploy MDAPI Source to the Packaging Org
+          command: |
+            #### Deploy the newly converted MDAPI Source to the Packaging Org
+            ## sfdx force:mdapi:deploy
+            # -d --DEPLOYDIR                Optional. The root of the directory tree that contains the files to deploy.
+            # -l --TESTLEVEL                Optional. Specifies which level of deployment tests to run.
+            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
+            # -w --WAIT                     Optional. The number of minutes to wait for the command to complete. Default is –1 (no limit).
+            #    --VERBOSE                  Optional. Indicates that you want verbose output from the deploy operation.
+            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
+            sfdx force:mdapi:deploy -d "./mdapi-source/circle_build_$CIRCLE_BUILD_NUM" \
+                                    -l RunLocalTests \
+                                    -u PkgOrg \
+                                    -w 15 \
+                                    --verbose \
+                                    --loglevel error
+      - run:
+          name: List current version history for the first-generation package about to be uploaded
+          command: |
+            #### List version info for all first-gen packages
+            ## sfdx force:package1:version:list
+            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
+            # -i --PACKAGEID                Optional. ID of the metadata package (starts with 033) we want version info from.
+            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
+            sfdx force:package1:version:list  -u PkgOrg \
+                                              -i $METADATA_PACKAGE_ID \
+                                              --loglevel error
+      - run:
+          name: Create (upload) a new MANAGED BETA package version
+          command: |
+            #### Create a new MANAGED BETA package version
+            ## sfdx force:package1:version:create
+            # -i --PACKAGEID                Required. ID of the metadata package (starts with 033) of which you’re creating a new version.
+            # -n --NAME                     Required. Package version name.
+            # -d --DESCRIPTION              Optional. Package version description.
+            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
+            # -w --WAIT                     Optional. The number of minutes to wait for the command to complete. Default is –1 (no limit).
+            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
+            sfdx force:package1:version:create  -i $METADATA_PACKAGE_ID \
+                                                -n "$PACKAGE_VERSION_NAME" \
+                                                -d "Package version generated by CI process" \
+                                                -u PkgOrg \
+                                                -w 15 \
+                                                --loglevel error
+
+      # Store SFDX logs as artifacts
+      - store_artifacts:
+          path: ~/.sfdx/sfdx.log
+          destination: sfdx-logs
 
 ####################################################################################################
 ## WORKFLOW:  build_and_test
