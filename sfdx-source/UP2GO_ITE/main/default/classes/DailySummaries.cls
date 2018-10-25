@@ -41,7 +41,7 @@ public with sharing class DailySummaries {
     }
     
     
-    // PRIVATE METHODS
+    // PRIVATE
     
     private Map<Date, Decimal> calculateAmounts(Boolean justReimbursable) {
         Map<Date, Decimal> result = new Map<Date, Decimal>();
