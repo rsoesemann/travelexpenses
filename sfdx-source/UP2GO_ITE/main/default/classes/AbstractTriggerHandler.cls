@@ -39,5 +39,4 @@ public abstract class AbstractTriggerHandler {
 	public virtual void onAfterInsert() {}
 	public virtual void onAfterUpdate() {}
 	public virtual void onAfterDelete() {}
-	
 }
