@@ -114,10 +114,10 @@ jobs:
           destination: sfdx-logs
 
 ####################################################################################################
-## JOB:     test-build-1
+## JOB:     test-build
 ## PURPOSE: Builds and tests against a specific org shape.
 ####################################################################################################
-  test-build-1:
+  test-build:
     docker:
       - image: ncino/ci-sfdx
     environment:
@@ -339,7 +339,7 @@ workflows:
             branches:
               only:
                 - non-existant-branch   # Normally, this might be "master". This should be configured after template is customized.
-      - test-build-1:
+      - test-build:
           context: org-global
           requires:
             - setup-build-environment
@@ -350,7 +350,7 @@ workflows:
 #      - create-beta-package:
 #          context: org-global
 #          requires:
-#            - test-build-1
+#            - test-build
 #            - test-build-2
 
 #END-OF-CONFIG-FILE#
