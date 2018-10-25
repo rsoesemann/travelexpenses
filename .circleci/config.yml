@@ -343,14 +343,14 @@ workflows:
           context: org-global
           requires:
             - setup-build-environment
-      - test-build-2:
-          context: org-global
-          requires:
-            - setup-build-environment
-      - create-beta-package:
-          context: org-global
-          requires:
-            - test-build-1
-            - test-build-2
+#      - test-build-2:
+#          context: org-global
+#          requires:
+#            - setup-build-environment
+#      - create-beta-package:
+#          context: org-global
+#          requires:
+#            - test-build-1
+#            - test-build-2
 
 #END-OF-CONFIG-FILE#
