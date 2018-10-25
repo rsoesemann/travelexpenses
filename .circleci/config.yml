@@ -346,6 +346,6 @@ workflows:
       - create_beta_package:
           context: org-global
           requires:
-            - test_build
+            - build
 
 #END-OF-CONFIG-FILE#
