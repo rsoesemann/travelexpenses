@@ -20,8 +20,6 @@ global with sharing class ExpenseCtrlExt {
     global static Id findLocation(String city, String country) {
         Id result;
         
-        /*DEPRECATED*/
-        
         return result;
     }
       
