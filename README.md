@@ -1,4 +1,4 @@
-# TravelExpenses for Salesforce.com (DX'ed)#
+# TravelExpenses for Salesforce.com (DX'ed)
 
 [![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://deploy-to-sfdx.com)
 <a href="https://githubsfdeploy.herokuapp.com">
