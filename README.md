@@ -9,7 +9,7 @@
 [Installation/Download](#installationdownload) | [Screenshots](#screenshots) | [Know Issues/Todos](#known-issuestodos) | [Third Party Code](#third-party-code) | [Licence](#visualforce-tablegrid-license)
 
 TravelExpenses is a free, open-source Salesforce.com application, designed to simplify the reimbursement process of business travels. 
-There are two kinds of users, Travelers and Expense Managers.
+There are two kinds of users (= permission sets), Travelers and Expense Managers.
 The application is divided into two roles, Traveler and Expense Manager.
 As an Traveler, you can easily state and sum up the expenses you had on your business trip via desktop or mobile device, making it easier for your expense manager to overview the costs. If you stated all your expenses you can submit the travel for reimbursement and start an (approval process) to hand it over to your expense manager. 
 As an Expense Manager you can view and edit all data provided by the Traveler and check them for correctness. You are then able to reject or approve reimbursement requests, depending if the requirements of your organization are met.
