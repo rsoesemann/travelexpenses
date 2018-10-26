@@ -20,7 +20,7 @@ public with sharing class BreakfastInclusionHandler {
 
     public void handleInclusion(Boolean breakfastIncluded) {
     	for(Expense__c a : accommodations) {
-    		startInclusion(a, breakfastIncluded);
+		startInclusion(a, breakfastIncluded);
     	}
     }
     
@@ -45,7 +45,7 @@ public with sharing class BreakfastInclusionHandler {
     
     
 
-    // PRIVATE METHODS
+    // PRIVATE
 
     private Map<Id, List<MealInvitation__c>> queryAllInvitations() {
     	Map<Id, List<MealInvitation__c>> resultMap = new Map<Id, List<MealInvitation__c>>();
