@@ -3,9 +3,8 @@ public with sharing class CompensationRateType {
 	private static Map<Type, Id> rtIdByType;
 	private static Map<Id, Type> rtTypeById;
 	
-	
 	private CompensationRateType() {
-		// Note: Enforce static nature of this class	
+		// Note: Enforce static nature of this class. Real singleton
 	}
 	
 	
