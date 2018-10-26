@@ -16,7 +16,7 @@ public with sharing class BreakfastInclusionHandler {
     }
     
     
-    // PUBLIC METHODS
+    // PUBLIC
 
     public void handleInclusion(Boolean breakfastIncluded) {
     	for(Expense__c a : accommodations) {
