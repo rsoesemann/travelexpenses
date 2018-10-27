@@ -156,7 +156,7 @@ jobs:
           name: Import data required by the tests.
           command: |
             sfdx force:data:tree:import --plan data/CurrencyType-plan.json
-            sfdx force:data:tree:import --plan data/UP2GO_ITE__CustomSettings__c-plan.json"
+            sfdx force:data:tree:import --plan data/UP2GO_ITE__CustomSettings__c-plan.json
       - run:
           name: Adjust admin user and add permissions
           command: |
