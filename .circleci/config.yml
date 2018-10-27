@@ -106,7 +106,7 @@ jobs:
           root: /tmp/sfdx-keys
           paths:
             - dev-hub.key
-            #- pkg-org.key
+            - pkg-org.key
 
       # Store SFDX logs as artifacts
       - store_artifacts:
