@@ -182,7 +182,7 @@ jobs:
       - run:
           name: Import data required by the tests.
           command: |
-            force:data:tree:import --plan data/CurrencyType-plan.json
+            sfdx force:data:tree:import --plan data/CurrencyType-plan.json
       - run:
           name: Create artifact directory to store test results
           command: |
