@@ -48,14 +48,14 @@ version: 2
 jobs:
 ####################################################################################################
 ## JOB:     build
-## PURPOSE: Creates an RSA private key in a build workspace directory based on values from 
+## PURPOSE: Creates an RSA private key in a build workspace directory based on values from
 ##          environment variables that are available to this project.
 ####################################################################################################
   build:
     docker:
       - image: ncino/ci-sfdx
     steps:
-      - run: 
+      - run:
           name: Display version info for the Salesforce CLI and core plugins (will force updates if needed)
           command: |
             sfdx version          # Output the version of the CLI
@@ -92,7 +92,7 @@ jobs:
 
       ######
       # NOTE: If you have additional orgs to connect to (eg. UAT Orgs) as part of
-      # a complete build workflow, you should create additional private key files and 
+      # a complete build workflow, you should create additional private key files and
       # validate authentication here. This way, if there are any issues with creating the
       # Private Keys or authenticating to the specified orgs, the entire workflow can
       # "fail fast" (here and now), rather than consume resources for a partial build.
@@ -128,12 +128,12 @@ jobs:
       - checkout                  # Required step.  Checks out the code from your repositoryd.
       - attach_workspace:
           at: /tmp/sfdx-keys      # Attaches the workspace where our private key files were stored.
-      - run: 
+      - run:
           name: Display version info for the Salesforce CLI and core plugins (will force updates if needed)
           command: |
             sfdx version          # Output the version of the CLI
             sfdx plugins --core   # Output the version of the core plugins
-      - run: 
+      - run:
           name: Authenticate the Salesforce CLI to the Dev Hub using JWT
           command: |
             #### Use the dev-hub.key that was created by the build job
@@ -180,6 +180,10 @@ jobs:
             sfdx force:user:permset:assign  -n "Traveler" \
                                             -u circle_build_$CIRCLE_BUILD_NUM
       - run:
+          name: Import data required by the tests.
+          command: |
+            force:data:tree:import --plan data/CurrencyType-plan.json
+      - run:
           name: Create artifact directory to store test results
           command: |
             #### Create artifact directory to store test results.
@@ -193,7 +197,7 @@ jobs:
             # -u --TARGETUSERNAME           Optional. The username of the org that Apex tests will be run against.
             # -l --TESTLEVEL                Optional. Specifies which tests to run, using a TestLevel enum value.
             #                               Permissible values are: RunLocalTests, RunAllTestsInOrg, RunSpecifiedTests
-            # -r --RESULTFORMAT             Optional. Format to use when displaying test results.  
+            # -r --RESULTFORMAT             Optional. Format to use when displaying test results.
             #                               Permissible values are: human, tap, junit, json
             #                               If you also specify the --json flag, --json overrides this parameter.
             # -w --WAIT                     Optional. The number of minutes that the CLI will wait for tests to complete.
@@ -203,7 +207,7 @@ jobs:
                                       -l RunLocalTests \
                                       -r human \
                                       -w 10 \
-                                      -c 
+                                      -c
       - run:
           name: Mark all scratch orgs created by this job for deletion
           command: |
