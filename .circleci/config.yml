@@ -153,6 +153,11 @@ jobs:
             sfdx force:source:push  -u circle_build_$CIRCLE_BUILD_NUM \
                                     -w 20
       - run:
+          name: Import data required by the tests.
+          command: |
+            sfdx force:data:tree:import --plan data/CurrencyType-plan.json
+            sfdx force:data:tree:import --plan data/UP2GO_ITE__CustomSettings__c-plan.json"
+      - run:
           name: Adjust admin user and add permissions
           command: |
             sfdx force:user:permset:assign  -n "ExpenseManager" \
@@ -161,11 +166,6 @@ jobs:
                                             -u circle_build_$CIRCLE_BUILD_NUM
 
             sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyIsoCode=EUR"
-      - run:
-          name: Import data required by the tests.
-          command: |
-            sfdx force:data:tree:import --plan data/CurrencyType-plan.json
-            sfdx force:data:tree:import --plan data/UP2GO_ITE__CustomSettings__c-plan.json"
       - run:
           name: Create artifact directory to store test results
           command: |
