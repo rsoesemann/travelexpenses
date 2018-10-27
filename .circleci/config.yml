@@ -160,7 +160,7 @@ jobs:
             sfdx force:user:permset:assign  -n "Traveler" \
                                             -u circle_build_$CIRCLE_BUILD_NUM
 
-            sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyIsoCode=EUR" -u $SCRATCH_ORG_ALIAS
+            sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyIsoCode=EUR"
       - run:
           name: Import data required by the tests.
           command: |
