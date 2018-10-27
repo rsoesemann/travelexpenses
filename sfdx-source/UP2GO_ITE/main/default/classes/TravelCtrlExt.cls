@@ -23,7 +23,7 @@ global virtual with sharing class TravelCtrlExt {
     }
     
     
-    //GLOBAL METHODS
+    //GLOBAL
     
     @RemoteAction
     global static String getRecordStatus(Id recordId) {
@@ -45,7 +45,7 @@ global virtual with sharing class TravelCtrlExt {
     }
     
 
-    // PUBLIC METHODS
+    // PUBLIC
     
     public List<Expense__c> getSortedExpenses() {
         return sortedExpenses;
@@ -191,7 +191,7 @@ global virtual with sharing class TravelCtrlExt {
     }
     
     
-    // PRIVATE METHODS
+    // PRIVATE
     
     private String getDetails(Expense__c e) {
     	String result = '';
@@ -313,7 +313,7 @@ global virtual with sharing class TravelCtrlExt {
         }       
     }
     
-    // INNER CLASSES
+    // INNER
     
     public class ExpenseElement implements Comparable {
     	public String day { get; set; }
