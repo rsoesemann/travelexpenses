@@ -136,13 +136,6 @@ jobs:
       - run:
           name: Authenticate the Salesforce CLI to the Dev Hub using JWT
           command: |
-            #### Use the dev-hub.key that was created by the build job
-            ## sfdx force:auth:jwt:grant
-            # -i --CLIENTID                 Required. The OAuth client ID (sometimes referred to as the consumer key)
-            # -f --JWTKEYFILE               Required. Path to a file containing the private key
-            # -u --USERNAME                 Required. The authentication username.
-            # -d --SETDEFAULTDEVHUBUSERNAME Optional. Sets the authenticated org as the default Dev Hub org for scratch org creation.
-            # -a --SETALIAS                 Optional. Sets an alias for the authenticated org.
             sfdx force:auth:jwt:grant -i $DEVHUB_CONSUMER_KEY \
                                       -f /tmp/sfdx-keys/dev-hub.key \
                                       -u $DEVHUB_SFDC_USERNAME \
@@ -151,57 +144,35 @@ jobs:
       - run:
           name: Create a new scratch org
           command: |
-            #### Create a new scratch org using $CIRCLE_JOB as a key to correct sratch-def.json
-            ## sfdx force:org:create
-            # -f --DEFINITIONFILE           Required. Path to the scratch org config file for the org being created
-            # -a --SETALIAS                 Optional. Set an alias for the newly created scratch org
-            # -s --SETDEFAULTUSERNAME       Optional. Set this org as the default username
             sfdx force:org:create -f config/$SCRATCH_ORG_CONFIG \
                                   -a circle_build_$CIRCLE_BUILD_NUM \
                                   -s
       - run:
           name: Push SFDX source to the scratch org
           command: |
-            #### Push source to the scratch org
-            ## sfdx force:source:push
-            # -u --TARGETUSERNAME           Optional. Specify the username/alias of the org to push to
-            # -w --WAIT                     Optional. Number of minutes to wait for the push command to return
             sfdx force:source:push  -u circle_build_$CIRCLE_BUILD_NUM \
                                     -w 20
-      - run:
-          name: Assign permission sets to the scratch org's Admin user.
-          command: |
-            #### Assign permission set to Admin user.
-            ## sfdx force:user:permset:assign
-            # -n --PERMSETNAME              Required. The name of the permission set to assign
-            # -u --TARGETUSERNAME           Optional. Username or alias for the target org (Overrides default target org)
-            sfdx force:user:permset:assign  -n "ExpenseManager" \
-                                            -u circle_build_$CIRCLE_BUILD_NUM
-            sfdx force:user:permset:assign  -n "Traveler" \
-                                            -u circle_build_$CIRCLE_BUILD_NUM
       - run:
           name: Import data required by the tests.
           command: |
             sfdx force:data:tree:import --plan data/CurrencyType-plan.json
+            sfdx force:data:tree:import --plan data/UP2GO_ITE__CustomSettings__c-plan.json
+      - run:
+          name: Adjust admin user and add permissions
+          command: |
+            sfdx force:user:permset:assign  -n "ExpenseManager" \
+                                            -u circle_build_$CIRCLE_BUILD_NUM
+            sfdx force:user:permset:assign  -n "Traveler" \
+                                            -u circle_build_$CIRCLE_BUILD_NUM
+
+            sfdx force:data:record:update -s User -w "Name='User User'" -v "DefaultCurrencyIsoCode=EUR"
       - run:
           name: Create artifact directory to store test results
           command: |
-            #### Create artifact directory to store test results.
             mkdir -p "$TEST_RESULTS_PATH/$TEST_RESULTS_DIR"
       - run:
           name: Run all local (unpackaged) Apex tests in the scratch org
           command: |
-            #### Run Apex tests and store the results
-            ## sfdx force:apex:test:run
-            # -d --OUTPUTDIR                Optional. Directory to store test run files.
-            # -u --TARGETUSERNAME           Optional. The username of the org that Apex tests will be run against.
-            # -l --TESTLEVEL                Optional. Specifies which tests to run, using a TestLevel enum value.
-            #                               Permissible values are: RunLocalTests, RunAllTestsInOrg, RunSpecifiedTests
-            # -r --RESULTFORMAT             Optional. Format to use when displaying test results.
-            #                               Permissible values are: human, tap, junit, json
-            #                               If you also specify the --json flag, --json overrides this parameter.
-            # -w --WAIT                     Optional. The number of minutes that the CLI will wait for tests to complete.
-            # -c --CODECOVERAGE             Optional. Retrieves code coverage results as part of the test run.
             sfdx force:apex:test:run  -d $TEST_RESULTS_PATH/$TEST_RESULTS_DIR \
                                       -u circle_build_$CIRCLE_BUILD_NUM \
                                       -l RunLocalTests \
@@ -211,10 +182,6 @@ jobs:
       - run:
           name: Mark all scratch orgs created by this job for deletion
           command: |
-            #### Mark the scratch org we used for deletion.
-            ## sfdx force:org:delete
-            # -u --TARGETUSERNAME           Required. Username or alias for the target org
-            # -p --NOPROMPT                 Optional. Do not prompt the user to confirm deletion
             sfdx force:org:delete -u circle_build_$CIRCLE_BUILD_NUM \
                                   -p
 
@@ -253,13 +220,6 @@ jobs:
       - run:
           name: Authenticate the Salesforce CLI to the Packaging Org using JWT
           command: |
-            #### Use the pkg-org.key that was created by the build job
-            ## sfdx force:auth:jwt:grant
-            # -i --CLIENTID                 Required. The OAuth client ID (sometimes referred to as the consumer key)
-            # -f --JWTKEYFILE               Required. Path to a file containing the private key
-            # -u --USERNAME                 Required. The authentication username.
-            # -d --SETDEFAULTDEVHUBUSERNAME Optional. Sets the authenticated org as the default Dev Hub org for scratch org creation.
-            # -a --SETALIAS                 Optional. Sets an alias for the authenticated org.
             sfdx force:auth:jwt:grant -i $PKGORG_CONSUMER_KEY \
                                       -f /tmp/sfdx-keys/pkg-org.key \
                                       -u $PKGORG_SFDC_USERNAME \
@@ -268,12 +228,6 @@ jobs:
       - run:
           name: Convert SFDX source to MDAPI source
           command: |
-            #### Convert SFDX source to MDAPI source so it can be deployed to the Packaging Org
-            ## sfdx force:source:convert
-            # -r --ROOTDIR                  Optional. The directory that contains the source to convert.
-            # -d --OUTPUTDIR                Optional. The output directory to export the Metadata API source to.
-            # -n --PACKAGENAME              Optional. The name of the package to associate with the Metadata API source.
-            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
             sfdx force:source:convert -r "$PACKAGE_DIRECTORY" \
                                       -d "./mdapi-source/circle_build_$CIRCLE_BUILD_NUM" \
                                       -n "$PACKAGE_NAME" \
@@ -281,14 +235,6 @@ jobs:
       - run:
           name: Deploy MDAPI Source to the Packaging Org
           command: |
-            #### Deploy the newly converted MDAPI Source to the Packaging Org
-            ## sfdx force:mdapi:deploy
-            # -d --DEPLOYDIR                Optional. The root of the directory tree that contains the files to deploy.
-            # -l --TESTLEVEL                Optional. Specifies which level of deployment tests to run.
-            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
-            # -w --WAIT                     Optional. The number of minutes to wait for the command to complete. Default is –1 (no limit).
-            #    --VERBOSE                  Optional. Indicates that you want verbose output from the deploy operation.
-            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
             sfdx force:mdapi:deploy -d "./mdapi-source/circle_build_$CIRCLE_BUILD_NUM" \
                                     -l RunLocalTests \
                                     -u PkgOrg \
@@ -298,25 +244,12 @@ jobs:
       - run:
           name: List current version history for the first-generation package about to be uploaded
           command: |
-            #### List version info for all first-gen packages
-            ## sfdx force:package1:version:list
-            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
-            # -i --PACKAGEID                Optional. ID of the metadata package (starts with 033) we want version info from.
-            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
             sfdx force:package1:version:list  -u PkgOrg \
                                               -i $METADATA_PACKAGE_ID \
                                               --loglevel error
       - run:
           name: Create (upload) a new MANAGED BETA package version
           command: |
-            #### Create a new MANAGED BETA package version
-            ## sfdx force:package1:version:create
-            # -i --PACKAGEID                Required. ID of the metadata package (starts with 033) of which you’re creating a new version.
-            # -n --NAME                     Required. Package version name.
-            # -d --DESCRIPTION              Optional. Package version description.
-            # -u --TARGETUSERNAME           Optional. A username or alias for the target org. Overrides the default target org.
-            # -w --WAIT                     Optional. The number of minutes to wait for the command to complete. Default is –1 (no limit).
-            #    --LOGLEVEL                 Optional. The logging level for this command invocation.
             sfdx force:package1:version:create  -i $METADATA_PACKAGE_ID \
                                                 -n "$PACKAGE_VERSION_NAME" \
                                                 -d "Package version generated by CI process" \

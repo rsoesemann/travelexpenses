@@ -1,6 +1,6 @@
 {
   "orgName":"TRAVELEXPENSES-TEST",
-  "edition":"Enterprise",
+  "edition":"Developer",
   "features":[
     "MultiCurrency",
     "CascadeDelete",
