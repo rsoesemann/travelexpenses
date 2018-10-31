@@ -237,10 +237,10 @@ jobs:
     docker:
       - image: ncino/ci-sfdx
     environment:
-      - PACKAGE_NAME:         "Travelexpenses"                # Name of your managed package
-      - PACKAGE_VERSION_NAME: "X (Travelexpenses)"                 # Version Name for your managed package
-      - METADATA_PACKAGE_ID:  "033F00000001hRiIAI"            # Metadata Package ID (always begins with 033)
-      - PACKAGE_DIRECTORY:    "./sfdx-source/travelexpenses_x"  # SFDX package directory that has your code
+      - PACKAGE_NAME:         "Travelexpenses"           # Name of your managed package
+      - PACKAGE_VERSION_NAME: "X.y (Travelexpenses)"       # Version Name for your managed package
+      - METADATA_PACKAGE_ID:  "033F00000001hRiIAI"       # Metadata Package ID (always begins with 033)
+      - PACKAGE_DIRECTORY:    "./sfdx-source/UP2GO_ITE"  # SFDX package directory that has your code
     steps:
       - checkout                  # Required step.  Checks out the code from your repository.
       - attach_workspace:
