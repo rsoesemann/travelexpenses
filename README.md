@@ -6,8 +6,6 @@
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
-[Installation/Download](#installationdownload) | [Screenshots](#screenshots) | [Know Issues/Todos](#known-issuestodos) | [Third Party Code](#third-party-code) | [Licence](#visualforce-tablegrid-license)
-
 TravelExpenses is a free, open-source Salesforce.com application, designed to simplify the reimbursement process of business travels. 
 There are two kinds of users (= permission sets), Travelers and Expense Managers.
 The application is divided into two roles, Traveler and Expense Manager.
@@ -40,10 +38,6 @@ TravelExpenses ist eine kostenlose "open-source" Salesforce.com Anwendung welche
 
 <img src="https://github.com/Up2Go/travelexpenses/blob/master/resources/Salesforce1%20-%20Publisher%20Action%20-%20New%20Travel.png" width="200">
 
-## Known Issues/Todos ##
-
-- tbd
-
 
 ## Third-party Code ##
 
@@ -58,7 +52,6 @@ TravelExpenses ist eine kostenlose "open-source" Salesforce.com Anwendung welche
 - [Bootstrap datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker), a nice datetimepicker widget.
 
 - [Visualstrap](http://blogforce9dev-developer-edition.ap1.force.com/ProjectDetail?id=a0290000009MI61), a visualforce implementation of Bootstrap. VisualStrap is a set of components that work inside your visualforce page without affecting the standard layouts.
-
 
 
 ## TravelExpenses License ##
